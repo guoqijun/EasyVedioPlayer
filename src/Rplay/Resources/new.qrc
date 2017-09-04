@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="RRplay">
+    <file>logo.ico</file>
+    <file>open_hot.png</file>
+    <file>open_normal.png</file>
+    <file>pause_hot.png</file>
+    <file>pause_normal.png</file>
+    <file>play_hot.png</file>
+    <file>play_normal.png</file>
+  </qresource>
+</RCC>

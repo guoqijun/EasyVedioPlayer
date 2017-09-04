@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RplayClass</class>
+ <widget class="QWidget" name="RplayClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>401</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Rplay</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../../src/Rplay/Resources/new.qrc">
+    <normaloff>:/RRplay/logo.ico</normaloff>:/RRplay/logo.ico</iconset>
+  </property>
+  <widget class="VedioWidget" name="openGLWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>400</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="openButton">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>290</y>
+     <width>71</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:!hover{border-image: url(:/RRplay/open_normal.png);}
+QPushButton:hover{border-image: url(:/RRplay/open_hot.png);}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="playButton">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>300</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:!hover{border-image: url(:/RRplay/play_normal.png);}
+QPushButton:hover{border-image: url(:/RRplay/play_hot.png);}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="RSlider" name="playline">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>360</y>
+     <width>561</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>999</number>
+   </property>
+   <property name="pageStep">
+    <number>100</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="totaltime">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>330</y>
+     <width>66</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 75 11pt &quot;Arial&quot;;</string>
+   </property>
+   <property name="text">
+    <string>000.000</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="playtime">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>330</y>
+     <width>71</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+font: 75 11pt &quot;Arial&quot;;</string>
+   </property>
+   <property name="text">
+    <string>000.000</string>
+   </property>
+  </widget>
+  <zorder>openGLWidget</zorder>
+  <zorder>playButton</zorder>
+  <zorder>playline</zorder>
+  <zorder>totaltime</zorder>
+  <zorder>playtime</zorder>
+  <zorder>openButton</zorder>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>VedioWidget</class>
+   <extends>QOpenGLWidget</extends>
+   <header>vediowidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>RSlider</class>
+   <extends>QSlider</extends>
+   <header location="global">rslider.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="Rplay.qrc"/>
+  <include location="../../src/Rplay/Resources/new.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>openButton</sender>
+   <signal>clicked()</signal>
+   <receiver>RplayClass</receiver>
+   <slot>open()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>350</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>86</x>
+     <y>-13</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>playline</sender>
+   <signal>sliderPressed()</signal>
+   <receiver>RplayClass</receiver>
+   <slot>sliderPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>176</x>
+     <y>373</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>666</x>
+     <y>201</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>playline</sender>
+   <signal>sliderReleased()</signal>
+   <receiver>RplayClass</receiver>
+   <slot>sliderRelease()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>299</x>
+     <y>362</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>703</x>
+     <y>238</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>playButton</sender>
+   <signal>clicked()</signal>
+   <receiver>RplayClass</receiver>
+   <slot>play()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>372</x>
+     <y>329</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>661</x>
+     <y>189</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>open()</slot>
+  <slot>sliderPress()</slot>
+  <slot>sliderRelease()</slot>
+  <slot>play()</slot>
+  <slot>stop()</slot>
+ </slots>
+</ui>
